@@ -1,0 +1,12 @@
+metric,source_definition,raw_value,clean_value,analytics_value,dashboard_value,difference,status
+Total Transactions Count,Count of transactions in dataset,"20,400","20,000","20,000","20,000",0 (Post-dedup),PASS
+Total Transaction GMV (INR),Sum of signed valid transaction amounts,"INR 244,248,045.17","INR 239,232,643.30","INR 239,232,643.30","INR 239,232,643.30",INR 0.00,PASS
+Average Transaction Value (INR),Total GMV / Total Clean Transactions,"INR 11,972.94","INR 11,961.63","INR 11,961.63","INR 11,961.63",INR 0.00,PASS
+Successful Transactions Count,Transactions with status=SUCCESS,"17,395","17,053","17,053","17,053",0,PASS
+Transaction Success Rate (%),Successful Txns / Total Clean Txns,85.27%,85.27%,85.27%,85.27%,0.00%,PASS
+Failed Transactions Count,Transactions with status=FAILED,"1,990","1,955","1,955","1,955",0,PASS
+Transaction Failure Rate (%),Failed Txns / Total Clean Txns,9.75%,9.78%,9.78%,9.78%,0.00%,PASS
+Pending Transactions Count,Transactions with status=PENDING,795,772,772,772,0,PASS
+Total Chargebacks Count,Count of distinct customer disputes,"2,884","2,800","2,800","2,800",0,PASS
+Total Disputed Amount (INR),Sum of parsed dispute amounts (ignoring NULLs),"INR 6,952,800.50","INR 6,790,449.54","INR 6,790,449.54","INR 6,790,449.54",INR 0.00,PASS
+Chargeback to Transaction Ratio (%),Total Chargebacks / Total Clean Txns,14.14%,14.00%,14.00%,14.00%,0.00%,PASS

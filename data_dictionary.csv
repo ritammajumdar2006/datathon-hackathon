@@ -1,0 +1,47 @@
+field_name,source_dataset,data_type,description,transformation,business_meaning
+txn_id,track1_upi_transactions.csv,VARCHAR,Unique UPI transaction identifier,Standardized to TXN000XXXXX,Primary key for transaction tracking
+timestamp,track1_upi_transactions.csv,TIMESTAMP,Transaction execution timestamp,Harmonized Unix epoch and string datetimes to ISO 8601,Time of payment initiation
+user_id,track1_upi_transactions.csv / track1_kyc_records.csv,VARCHAR,Customer / Payer identifier,Standardized to USRXXXXX,Identifies the initiating customer
+merchant_id,track1_upi_transactions.csv / track1_merchants_master.csv,VARCHAR,Merchant / Payee identifier,Standardized to MCHXXXX,Identifies the receiving business entity
+amount_clean,track1_upi_transactions.csv,DOUBLE,Transaction value in INR,Exact signed value preserved without abs(),Monetary value of the UPI transfer
+amount_raw,track1_upi_transactions.csv,VARCHAR,Original raw transaction amount string,Preserved unmodified,Forensic audit trail
+negative_amount_flag,track1_upi_transactions.csv,BOOLEAN,Flag indicating negative transaction value,amount_clean < 0,Reversal / debit adjustment indicator
+invalid_amount_flag,track1_upi_transactions.csv,BOOLEAN,Flag indicating unparseable amount,Parse failure indicator,Data quality anomaly
+utr_clean,track1_upi_transactions.csv,VARCHAR,Cleaned Unique Transaction Reference,Trimmed and uppercased,Banking reference for interbank settlement
+utr_raw,track1_upi_transactions.csv,VARCHAR,Original raw UTR string,Preserved unmodified,Forensic audit trail
+is_utr_missing,track1_upi_transactions.csv,BOOLEAN,Flag indicating missing UTR reference,Computed boolean condition,Key anomaly signal for settlement failures
+mcc,track1_upi_transactions.csv / track1_merchants_master.csv,VARCHAR,Merchant Category Code (4 digits),Preserved from raw transaction,Standard industry classification code
+status,track1_upi_transactions.csv,VARCHAR,Transaction execution state,Mapped 12+ raw strings to SUCCESS FAILED PENDING,Final payment gateway settlement state
+is_unmatched_kyc,track1_upi_transactions.csv,BOOLEAN,Referential integrity flag for missing KYC profile,Foreign key validation check,Audit tracking for unlinked customers
+is_unmatched_merchant,track1_upi_transactions.csv,BOOLEAN,Referential integrity flag for missing Merchant record,Foreign key validation check,Audit tracking for unlinked merchants
+full_name,track1_kyc_records.csv,VARCHAR,Customer full name,Trimmed and title-cased,Legal name of account holder
+pan_raw,track1_kyc_records.csv,VARCHAR,Original raw PAN string,Preserved unmodified,Forensic audit trail
+pan_normalized,track1_kyc_records.csv,VARCHAR,Normalized PAN string,Trimmed and uppercased without character replacement,Canonical identifier
+pan_validity_status,track1_kyc_records.csv,VARCHAR,PAN format validation result,Regex checked against [A-Z]{5}[0-9]{4}[A-Z],Tax compliance validation status
+pan_masked,track1_kyc_records.csv,VARCHAR,Masked Permanent Account Number,PII masking (XX..XX) for UI/display,Tax identity masked for privacy governance
+aadhaar_raw,track1_kyc_records.csv,VARCHAR,Original raw Aadhaar string,Preserved unmodified,Forensic audit trail
+aadhaar_normalized,track1_kyc_records.csv,VARCHAR,Normalized Aadhaar digits,Non-digit characters stripped,Canonical 12-digit UID
+aadhaar_validity_status,track1_kyc_records.csv,VARCHAR,Aadhaar format validation result,Checked for exact 12-digit numerical string,National identity validation status
+aadhaar_masked,track1_kyc_records.csv,VARCHAR,Masked 12-digit Aadhaar UID,Digits masked (XXXXXXXX0000) for UI/display,National identity masked for privacy governance
+monthly_income,track1_kyc_records.csv,DOUBLE,Declared customer monthly earnings,Parsed k-notation and currency symbols,Financial capacity benchmark for velocity checks
+kyc_status,track1_kyc_records.csv,VARCHAR,KYC compliance verification status,Mapped raw statuses to VERIFIED PENDING REJECTED,Account validation and AML risk tier
+conflict_group_id,track1_kyc_records.csv / track1_merchants_master.csv,VARCHAR,Deduplication group identifier,Deterministic hash of business key,Entity deduplication lineage
+conflict_flag,track1_kyc_records.csv / track1_merchants_master.csv,BOOLEAN,Flag indicating multiple conflicting profiles,Duplicate key occurrence check,Entity collision indicator
+canonical_record_flag,track1_kyc_records.csv / track1_merchants_master.csv,BOOLEAN,Flag for surviving canonical profile,Latest signup/onboarding timestamp rule,Master entity survivorship flag
+merchant_name,track1_merchants_master.csv,VARCHAR,Business trading name,Trimmed and title-cased,Registered merchant identity
+merchant_category,track1_merchants_master.csv,VARCHAR,Business industry sector,Standardized category names,Sector risk segmentation
+business_type,track1_merchants_master.csv,VARCHAR,Legal entity structure,Mapped to INDIVIDUAL SOLE_PROPRIETOR PARTNERSHIP PRIVATE_LIMITED,Ownership and compliance structure
+settlement_account,track1_merchants_master.csv,VARCHAR,Bank settlement account number,Trimmed and uppercased,Bank account where merchant funds are settled
+is_shared_settlement_hub,track1_merchants_master.csv,BOOLEAN,Flag indicating shared settlement account,Cross-merchant frequency count (>1),Merchant collusion / money-pooling hub signal
+declared_avg_ticket_size,track1_merchants_master.csv,DOUBLE,Declared expected transaction size,Cleaned currency with signed retention,Baseline ticket size for surge anomaly detection
+complaint_id,track1_chargebacks.json,VARCHAR,Unique dispute complaint identifier,Standardized to CBK000XXXX,Primary key for chargeback dispute
+disputed_amount_clean,track1_chargebacks.json,DOUBLE,Claimed disputed chargeback value,Parsed currency preserving true NULLs without imputation,Financial loss exposure in dispute
+disputed_amount_missing,track1_chargebacks.json,BOOLEAN,Flag for unrecorded/missing dispute amount,True when original amount was null or missing,Financial data quality tracking
+reason_code,track1_chargebacks.json,VARCHAR,Categorized complaint reason,Trimmed and title-cased,Root cause of customer dispute
+severity,track1_chargebacks.json,VARCHAR,Dispute urgency and loss severity,Mapped to CRITICAL HIGH MEDIUM LOW based on dispute reason,Priority level for fraud response teams
+resolution_status,track1_chargebacks.json,VARCHAR,Dispute lifecycle resolution status,Mapped to RESOLVED IN_PROGRESS REJECTED PENDING_BANK,Current legal/banking dispute state
+reporting_delay_days,track1_chargebacks.json,DOUBLE,Days elapsed between transaction and report,Computed delta (reported_timestamp - txn_timestamp),Account takeover / delayed discovery indicator
+is_unmatched_transaction,track1_chargebacks.json,BOOLEAN,Referential integrity flag for unlinked transaction,Foreign key validation check,Dispute referential integrity indicator
+risk_score,Analytical Layer,DOUBLE,Explainable entity risk score (0-100),Computed by Multi-Factor Explainable Risk Engine,Consolidated fraud likelihood index
+risk_level,Analytical Layer,VARCHAR,Categorical risk classification,Threshold-based (HIGH: >=60, MEDIUM: 35-59, LOW: <35),Actionable triage tier for fraud operations
+risk_factors,Analytical Layer,VARCHAR,Transparent list of flagged signals,Generated during risk scoring evaluation,Audit trail and explanation for investigators

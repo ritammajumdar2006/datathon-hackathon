@@ -1,0 +1,45 @@
+dataset,column_name,row_count,non_null_count,null_count,null_pct,unique_count,duplicate_count,data_type,min_value,max_value,mean_value,median_value,sample_variants
+track1_upi_transactions.csv,txn_id,20400,20400,0,0.0,20000,400,str,1.00,20000.00,9993.82,9993.50,TXN00011869 | TXN00010383 | TXN00008297 | TXN00006448 | TXN00018792
+track1_upi_transactions.csv,timestamp,20400,20400,0,0.0,19083,1317,str,20260101.00,31032026231146.00,10364298487799.34,8032026001724.00,2026-01-15 00:11:30 | 2026-01-17 20:09:44 | 2026-01-23 14:10:16 | 1770063471 | 2026-03-31 14:02:37
+track1_upi_transactions.csv,user_id,20400,20400,0,0.0,17878,2522,str,10001.00,99998.00,54689.58,54588.00,USR45826 | USR79397 | USR87810 | USR54287 | USR53865
+track1_upi_transactions.csv,merchant_id,20400,20400,0,0.0,8051,12349,str,1000.00,9999.00,5520.95,5553.50,MCH7045 | MCH5031 | MCH9809 | MCH6928 | MCH8121
+track1_upi_transactions.csv,amount,20400,20400,0,0.0,19900,500,str,-24847.86,24998.12,11923.73,12202.63,15722.34 | Rs. 6362.9 | 15446.19 | 12110.49 | Rs. 19432.94
+track1_upi_transactions.csv,utr,20400,19376,1024,5.02,19000,376,str,272409.00,9999648917.00,4987799389.45,4991204699.50,UTR6498104698 | UTR7656190355 | UTR9037001889 | UTR5257823698 | UTR4204272894
+track1_upi_transactions.csv,mcc,20400,17474,2926,14.34,5,17469,float64,4131.00,7011.00,5616.33,5812.00,5411.0 | 4131.0 | 5812.0 | 5912.0 | 7011.0
+track1_upi_transactions.csv,status,20400,20400,0,0.0,14,20386,str,COMPLETED,TXN_SUCCESS,N/A,N/A,COMPLETED | TXN_FAILED | S | TXN_SUCCESS | SUCCESS
+track1_kyc_records.csv,user_id,36400,36400,0,0.0,32165,4235,str,-99981.00,99999.00,47084.00,51291.00,USR16112 | USR17216 | USR 45454 | USR46189 | USR85256
+track1_kyc_records.csv,full_name,36400,36400,0,0.0,33921,2479,str,0.00,111.00,4.80,1.00,Dhriti Deshmukh | Megha Jani | PANINI LAL | Jack Parikh | Eta Ravi
+track1_kyc_records.csv,pan,36400,34504,1896,5.21,33164,1340,str,0.00,1148690.00,5678.36,5091.50,SEJAA8194O | QT0ZZ5561X | QCNTL9489O | RRVUI4059Q | ygvoi9236w
+track1_kyc_records.csv,aadhaar,36400,33736,2664,7.32,32093,1643,str,5138170.00,9997902715891.00,730115875366.17,493273017785.50,715658320763 | 023412025028 | 2781 6299 9816 | 0667 8032 7731 | 176258817110
+track1_kyc_records.csv,date_of_birth,36400,33456,2944,8.09,29284,4172,str,-315359620.00,311219970817.00,36987203729.74,20041012.00,06/04/1967 12:14 AM | 1969-02-19 08:25:23 | 20/04/1961 | 05-Sep-1990 | 12-20-1962
+track1_kyc_records.csv,city,36400,36400,0,0.0,41,36359,str,ASR,pune,N/A,N/A,Bombay | Lucknow | kolkata | Amritsar | delhi
+track1_kyc_records.csv,state,36400,36400,0,0.0,9,36391,str,Delhi,West Bengal,N/A,N/A,Maharashtra | Uttar Pradesh | West Bengal | Punjab | Delhi
+track1_kyc_records.csv,monthly_income,36400,33467,2933,8.06,26034,7433,str,-300000.00,235221.00,22145.56,21198.00,"35119 | 80907 | ₹11,214 | 27.3k | INR 24,705"
+track1_kyc_records.csv,occupation,36400,36400,0,0.0,9,36391,str,Business Owner,Unemployed,N/A,N/A,Retired | Freelancer | Farmer | Student | Salaried
+track1_kyc_records.csv,signup_timestamp,36400,33490,2910,7.99,14607,18883,str,1012024.00,311220251141.00,37094341530.32,21062024.00,2025-12-02 02:18:16 | 01-31-2024 | 2026-01-30 23:57:18 | 09-04-2025 | 03-Feb-2026
+track1_kyc_records.csv,kyc_status,36400,36400,0,0.0,16,36384,str,APPROVED,Verified,N/A,N/A,Done | Verified | Pending | VERIFIED | APPROVED
+track1_kyc_records.csv,risk_segment,36400,36400,0,0.0,12,36388,str,HIGH,unknown,N/A,N/A,LOW | medium | High | low | MEDIUM
+track1_merchants_master.csv,merchant_id,6210,6210,0,0.0,5083,1127,str,-9988.00,9999.00,4779.05,5218.00,mch2849 | MCH4314 | MCH1986 | mch3899 | MCH4859
+track1_merchants_master.csv,merchant_name,6210,6210,0,0.0,5732,478,str,-110.00,1111.00,29.50,0.00,"BHAVSAR, KOTA AND ZA | Deshmukh Ltd | Bains, Chanda and Gh |   Goswami-Bath   | VASA-RAJU"
+track1_merchants_master.csv,mcc,6210,5696,514,8.28,42,5654,str,-7011.00,7011.00,4872.82,5699.00,MCC-7011 | 5699 | 5311 | 4131 | 5812
+track1_merchants_master.csv,merchant_category,6210,6210,0,0.0,82,6128,str,Apparel,travel,N/A,N/A,hotel_lodging | Apparel | Retail | Transportation | Restaurant
+track1_merchants_master.csv,business_type,6210,6210,0,0.0,14,6196,str,INDIVIDUAL,sole_proprietor,N/A,N/A,Private Limited | PRIVATE_LIMITED | individual | Sole Proprietor | SOLE_PROPRIETOR
+track1_merchants_master.csv,city,6210,6210,0,0.0,41,6169,str,ASR,pune,N/A,N/A,Ludhiana | Jalandhar | Hyderabad | Hyd | Chennai
+track1_merchants_master.csv,state,6210,6210,0,0.0,9,6201,str,Delhi,West Bengal,N/A,N/A,Punjab | Telangana | Tamil Nadu | Rajasthan | Uttar Pradesh
+track1_merchants_master.csv,onboarding_date,6210,5711,499,8.04,4399,1312,str,1012023.00,311220250458.00,37137252625.13,21102023.00,09-23-2025 | 10/01/2026 | 14-Jan-2023 | 1742180385 | 1758406998
+track1_merchants_master.csv,settlement_account,6210,3759,2451,39.47,3548,211,str,9.00,9983029325791.00,1609149117509.12,4786143604.00,3021439858 | XXXX9523 | DUSD7272281625368 | TWPF4694358713410 | 2955352677
+track1_merchants_master.csv,merchant_status,6210,6210,0,0.0,15,6195,str,A,Suspended,N/A,N/A,Inactive | I | A | ACTIVE | Active
+track1_merchants_master.csv,declared_avg_ticket_size,6210,5839,371,5.97,5520,319,str,-12917.19,23536.65,1233.82,865.02,"INR 2,432.18 | 986.05 | INR 1,427.52 | -1271.48 | Rs. 214"
+track1_chargebacks.json,complaint_id,2884,2884,0,0.0,2800,84,str,1.00,2800.00,1404.98,1409.50,CBK0002082 | CBK0001941 | CBK0001799 | CBK0002465 | CBK0001870
+track1_chargebacks.json,txn_id,2884,2884,0,0.0,2582,302,str,-19784.00,99966.00,11624.59,10146.00,TXN00004325 | TXN00003720 | TXN00012539 | TXN00017802 | TXN00015944
+track1_chargebacks.json,user_id,2884,2884,0,0.0,2454,430,str,-98980.00,99997.00,46403.27,51105.00,usr97580 | USR54113 | USR17980 | USR76148 | USR24660
+track1_chargebacks.json,merchant_id,2884,2884,0,0.0,2051,833,str,-9984.00,9995.00,4607.02,4882.50,mch1127 | 3835 | mch3700 | MCH4534 | MCH1686
+track1_chargebacks.json,transaction_timestamp,2884,2884,0,0.0,1238,1646,str,1012026.00,310320261033.00,38377634505.50,21022026.00,2026/01/28 | 25/02/2026 10:24 AM | 2026/02/04 | 30-Mar-2026 | 09-Jan-2026
+track1_chargebacks.json,reported_timestamp,2884,2884,0,0.0,1329,1555,str,1012026.00,310320261023.00,37669930894.22,21012026.00,02-01-2026 | 1772691855 | 02-05-2026 | 01-Apr-2026 | 1768424501
+track1_chargebacks.json,disputed_amount,2884,2884,0,0.0,2609,275,object,-19036.69,45384.61,2136.75,1231.18," | 414.69 | Rs. 7,039 | 1303.05 | 1459.42"
+track1_chargebacks.json,reason_code,2884,2884,0,0.0,34,2850,str,ATO,unauthorized_transaction,N/A,N/A,Merchant Not Deliver | login compromised | customer issue | no service | merchant service iss
+track1_chargebacks.json,complaint_text,2884,2884,0,0.0,84,2800,str,COMPLAINT RECEIVED AFTER ,user says upi pin was not,N/A,N/A,Customer says amount | User reports money d | merchant service was | Suspicious high-valu | Merchant service was
+track1_chargebacks.json,resolution_status,2884,2884,0,0.0,13,2871,str,CLOSED,WIP,N/A,N/A,CLOSED | In Progress | OPEN | Rejected | Closed
+track1_chargebacks.json,bank_response_timestamp,2884,2884,0,0.0,1149,1735,str,1022026.00,310520261149.00,40581748020.00,20260507.00,2026-02-10 03:19:10 | 12/03/2026 06:24 AM | 06/03/2026 | 07-Apr-2026 | 01-26-2026
+track1_chargebacks.json,severity,2884,2884,0,0.0,16,2868,str,1.00,4.00,2.94,3.00,Critical | H | P4 | Low | LOW
+track1_chargebacks.json,channel,2884,2884,0,0.0,8,2876,str,App,ivr,N/A,N/A,ivr | Call Center | IVR | App | Branch

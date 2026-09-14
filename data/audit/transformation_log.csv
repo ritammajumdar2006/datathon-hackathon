@@ -1,0 +1,5 @@
+dataset,column,rule,records_affected,before_example,after_example,reason,timestamp
+track1_upi_transactions.csv,amount,"Preserve signed amounts (no abs()), parse symbols and commas",20000,-INR 956.46,-956.46,Prevent distorting negative debit reversals and true financial metrics,2026-09-13T18:00:00Z
+track1_upi_transactions.csv,timestamp,"Harmonize ISO 8601, slash, and Unix epoch formats",20000,1698754800 / 2024-03-01 10:15,2024-03-01T10:15:00,Deterministic time-series indexing and velocity calculation,2026-09-13T18:00:00Z
+track1_kyc_records.csv,pan,"Preserve raw PAN, validate format without speculative OCR mutation",28920,ABCDE1234F / ABCD01234F,VALID_FORMAT / INVALID_FORMAT,Maintain forensic audit trail and privacy compliance,2026-09-13T18:00:00Z
+track1_chargebacks.json,disputed_amount,Preserve missing values as NULL without imputation,583,"null / """"",NULL (disputed_amount_missing=TRUE),Zero-imputation compliance to prevent artificial exposure inflation,2026-09-13T18:00:00Z

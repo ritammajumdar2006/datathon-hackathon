@@ -1,0 +1,10 @@
+dataset,field,raw_distinct_ids,normalized_distinct_ids,collision_groups_count,sample_collision
+track1_upi_transactions.csv,txn_id,20000,20000,0,None
+track1_upi_transactions.csv,user_id,17878,17878,0,None
+track1_upi_transactions.csv,merchant_id,8051,8051,0,None
+track1_kyc_records.csv,user_id,32165,28920,3089,"[('USR45454', ['USR 45454', 'USR45454']), ('USR46189', ['USR46189', 'USR 46189']), ('USR22494', ['usr22494', 'USR22494'])]"
+track1_merchants_master.csv,merchant_id,5083,4343,690,"[('MCH2849', ['mch2849', 'MCH2849']), ('MCH1986', ['MCH1986', 'mch1986']), ('MCH2430', ['MCH 2430', 'MCH2430'])]"
+track1_chargebacks.json,complaint_id,2800,2800,0,None
+track1_chargebacks.json,txn_id,2582,2567,14,"[('TXN00014019', ['txn-00014019', 'TXN00014019']), ('TXN00007492', ['txn-00007492', 'TXN00007492']), ('TXN00011255', ['TXN00011255', 'txn-00011255'])]"
+track1_chargebacks.json,user_id,2454,2294,99,"[('USR97580', ['usr97580', 'USR97580', '97580']), ('USR30157', ['usr30157', 'USR30157', 'USR 30157']), ('USR35882', ['USR35882', 'USR 35882', 'usr35882', '35882'])]"
+track1_chargebacks.json,merchant_id,2051,1855,129,"[('MCH5980', ['MCH5980', 'mch5980', 'MCH 5980', 'MCH-5980', '5980']), ('MCH3992', ['MCH3992', 'mch3992', 'MCH 3992', '3992']), ('MCH2614', ['mch2614', 'MCH2614'])]"

@@ -1,0 +1,5 @@
+dataset,raw_row_count,exact_duplicate_rows,conflict_groups,canonical_records_retained,duplicate_handling_rule
+track1_upi_transactions.csv,20400,400,0,20000,Exact duplicate rows dropped (400 duplicate executions removed)
+track1_kyc_records.csv,36400,278,6114,28920,"Exact duplicates dropped; 6,114 conflict groups resolved via latest signup_date survivorship"
+track1_merchants_master.csv,6210,12,1407,4343,"Exact duplicates dropped; 1,407 conflict groups resolved via latest onboarding_date survivorship"
+track1_chargebacks.json,2884,84,0,2800,Exact duplicate dispute complaints dropped (84 duplicate entries removed)

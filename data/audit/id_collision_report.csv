@@ -1,0 +1,4 @@
+dataset,field,raw_unique_count,normalized_unique_count,collision_groups,collision_count,example_collision
+track1_kyc_records.csv,user_id,32165,28920,3089,7202,USR 45454 -> USR45454 | usr_12345 -> USR12345
+track1_merchants_master.csv,merchant_id,5083,4343,690,1855,mch2849 -> MCH2849 | MCH-1002 -> MCH1002
+track1_upi_transactions.csv,txn_id,20000,20000,0,0,None (1-to-1 canonical alignment)

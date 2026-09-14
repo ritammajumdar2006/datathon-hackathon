@@ -1,0 +1,5 @@
+dataset,raw_rows,duplicate_rows,conflict_groups,cleaned_rows,rows_retained_percentage
+DIM_MERCHANT,6210,12,1407,4343,69.94
+DIM_CUSTOMER_KYC,36400,278,6114,28920,79.45
+FACT_TRANSACTIONS,20400,400,0,20000,98.04
+FACT_CHARGEBACKS,2884,84,0,2800,97.09

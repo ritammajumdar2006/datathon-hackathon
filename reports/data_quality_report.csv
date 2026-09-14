@@ -1,0 +1,14 @@
+dataset,issue_type,before_count,after_count,affected_rows,resolution,status
+DIM_MERCHANT,Exact Duplicate Rows,6210,6198,12,Removed exact duplicate rows,RESOLVED
+DIM_MERCHANT,Master Record Conflicts,6198,4343,1855,Applied latest onboarding_date survivorship rule; flagged conflict groups,RESOLVED
+DIM_MERCHANT,Negative/Malformed Ticket Sizes,4343,4343,358,Preserved exact negative values and generated negative_ticket_size_flag (no abs() conversion),RESOLVED
+DIM_CUSTOMER_KYC,Exact Duplicate Rows,36400,36122,278,Removed exact duplicate rows,RESOLVED
+DIM_CUSTOMER_KYC,Master Record Conflicts,36122,28920,7202,Applied latest signup_timestamp survivorship rule; flagged conflict groups,RESOLVED
+DIM_CUSTOMER_KYC,PAN/Aadhaar Format Validation,28920,28920,9823,"Audited PAN/Aadhaar formats, flagged synthetic identity suspects, preserved raw values and masked PII",RESOLVED
+FACT_TRANSACTIONS,Exact Duplicate Rows,20400,20000,400,Removed exact duplicate transaction rows,RESOLVED
+FACT_TRANSACTIONS,Duplicate Transaction IDs,20400,20000,0,Retained first transaction entry per unique txn_id,RESOLVED
+FACT_TRANSACTIONS,Negative/Malformed Transaction Amounts,20000,20000,420,Preserved exact signed negative amounts (e.g. refunds/disputes); created negative_amount_flag and audit columns,RESOLVED
+FACT_TRANSACTIONS,Missing Transaction MCCs,20000,20000,2872,Cross-referenced missing MCCs from merchant master record,RESOLVED
+FACT_CHARGEBACKS,Exact Duplicate Complaints,2884,2800,84,Removed exact duplicate chargeback records,RESOLVED
+FACT_CHARGEBACKS,Duplicate Complaint IDs,2884,2800,0,Retained first complaint record,RESOLVED
+FACT_CHARGEBACKS,Missing/Negative Disputed Amounts,2800,2800,179,Preserved exact missing values as NULL with disputed_amount_missing=True; preserved negative values without abs(),RESOLVED

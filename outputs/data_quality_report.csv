@@ -1,0 +1,30 @@
+file,field,issue,count,pct_of_rows,note
+track1_upi_transactions.csv,amount,negative_amount,429,2.1,"negative amounts are physically invalid for a payment amount; requires flag/investigation, not silent abs()"
+track1_upi_transactions.csv,amount,currency_symbol_or_text_format,8141,39.91,"formats include ₹, Rs., INR prefixes and thousands commas"
+track1_upi_transactions.csv,status,inconsistent_status_labels,14,,14 raw labels map to 4 canonical states: SUCCESS/FAILED/PENDING/PROCESSING-INITIATED
+track1_upi_transactions.csv,utr,missing_utr,1024,5.02,"UTR absent; do not fabricate, flag utr_missing=True"
+track1_upi_transactions.csv,mcc,missing_mcc,2926,14.34,"14.3% of txns missing MCC, limits category-level analysis unless backfilled from merchant master"
+track1_upi_transactions.csv,txn_id,duplicate_txn_id,400,1.96,all 400 groups are exact full-row duplicates; safe to deduplicate keeping first occurrence
+track1_kyc_records.csv,pan,invalid_pan_format,7701,21.16,"expected AAAAA9999A pattern; invalid formats include lowercase, spaces, hyphens, wrong length"
+track1_kyc_records.csv,pan,missing_pan,1896,5.21,PAN absent from record
+track1_kyc_records.csv,aadhaar,invalid_aadhaar_length,6183,16.99,expected 12 digits (spaces/hyphens allowed as separators); found 4/10/13-digit variants
+track1_kyc_records.csv,monthly_income,"non_numeric_income (e.g. ""Not Available"", ""33.1k"")",4624,12.7,"contains currency symbols, ""k"" shorthand, and literal ""Not Available"" strings"
+track1_kyc_records.csv,date_of_birth,negative_epoch_impossible_date,579,1.59,"negative unix-epoch-like values -> impossible/corrupt date, must be flagged invalid not parsed"
+track1_kyc_records.csv,city,inconsistent_casing_and_aliases,41,,"41 raw values incl. case variants (Mumbai/MUMBAI/mumbai) and aliases/abbreviations (Bombay, Mumbay, BLR, Bengaluru)"
+track1_kyc_records.csv,kyc_status,inconsistent_status_labels,16,,16 raw labels map to canonical VERIFIED/PENDING/REJECTED/IN_PROGRESS
+track1_kyc_records.csv,risk_segment,inconsistent_casing,12,,12 raw labels collapse to LOW/MEDIUM/HIGH/UNKNOWN after case normalization
+track1_merchants_master.csv,mcc,inconsistent_mcc_format,42,,"42 raw values: plain (5411), zero-padded (05411), float-like (5411.0), prefixed (MCC-5411), and free text (misc, UNKNOWN) all referring to the same 6 code families"
+track1_merchants_master.csv,mcc,missing_mcc,514,8.28,MCC absent from merchant master
+track1_merchants_master.csv,merchant_category,inconsistent_category_labels,82,,82 raw values collapse to ~12-14 canonical categories after case/synonym/typo normalization
+track1_merchants_master.csv,business_type,inconsistent_casing_and_delimiters,14,,14 raw values collapse to canonical types (Individual/Partnership/Sole Proprietor/Private Limited/Unknown)
+track1_merchants_master.csv,merchant_status,inconsistent_status_labels,15,,15 raw labels (incl. single-letter codes A/I/S) collapse to ACTIVE/INACTIVE/SUSPENDED/CLOSED
+track1_merchants_master.csv,settlement_account,missing_settlement_account,2451,39.47,"39.5% missing; also mixed formats (masked XXXX####, bank-style digits, alphanumeric VPA-like strings)"
+track1_merchants_master.csv,declared_avg_ticket_size,negative_value,501,8.07,"physically invalid for a ticket size; flag, do not silently abs()"
+track1_chargebacks.json,disputed_amount,missing_or_blank,183,6.35,blank string values present alongside proper nulls
+track1_chargebacks.json,disputed_amount,negative_value,231,8.01,negative disputed amount is invalid; flag for investigation
+track1_chargebacks.json,reason_code,inconsistent_labels,34,,34 raw labels map to a smaller set of canonical dispute reasons
+track1_chargebacks.json,severity,inconsistent_labels_mixed_scales,16,,"mixes word scale (Low/Medium/High/Critical), letter codes (L/M/H), and priority codes (P1-P4/CRIT)"
+track1_chargebacks.json,resolution_status,inconsistent_labels,13,,13 raw labels collapse to OPEN/IN_PROGRESS/PENDING_BANK/RESOLVED/REJECTED/CLOSED
+track1_chargebacks.json,channel,inconsistent_casing,8,,8 raw values are case variants of channels (Email/Branch/IVR/Chatbot/App/Call Center)
+track1_upi_transactions.csv,user_id,broken_foreign_key_to_kyc,13783,67.56,"transaction user_id has no matching KYC record - classified as Data Quality finding, not fraud"
+track1_upi_transactions.csv,merchant_id,broken_foreign_key_to_merchants,10591,51.92,transaction merchant_id has no matching merchant master record

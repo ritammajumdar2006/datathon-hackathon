@@ -1,0 +1,5 @@
+operation,field,before_state,after_state,records_affected,governance_rule
+Currency Cleaning,amount,"Contains INR symbols, commas, negatives",Float amount_clean preserving exact sign,20000,Financial Lineage Preservation (Rule 6)
+Missing Financial Treatment,disputed_amount,583 records missing dispute amount,NULL with disputed_amount_missing=TRUE,583,Zero-Imputation Policy (Rule 3 and 15)
+Identity Validation,pan / aadhaar,Messy OCR strings and formatting,Non-destructive format flags and UI masks,28920,Non-destructive Identity Governance (Rule 11 and 12)
+Entity Conflict Resolution,user_id / merchant_id,Conflicting master attributes across time,Latest-signup canonical survivorship flag,7521,Deterministic Survivorship (Rule 8)

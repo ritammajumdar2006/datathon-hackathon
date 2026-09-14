@@ -1,0 +1,3 @@
+metric,raw_chargebacks,linked_chargebacks,unlinked_chargebacks,raw_disputed_amount,clean_disputed_amount,missing_amount_count,notes
+Total Chargeback Complaints,2884,2719,81,"INR 6,952,800.50","INR 6,790,449.54",183,84 exact dups removed; 81 missing/orphan txn_id kept as unlinked disputes; 183 missing amounts kept NULL (zero-imputation)
+Linked Transaction Disputes,2800,2719,81,"INR 6,790,449.54","INR 6,603,219.08",176,Direct 1-to-1 foreign key match to clean FACT_TRANSACTIONS

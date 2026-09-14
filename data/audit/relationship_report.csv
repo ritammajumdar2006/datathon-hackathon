@@ -1,0 +1,4 @@
+parent_table,child_table,join_key,total_child_rows,matched_rows,unmatched_rows,match_rate_pct,referential_status
+DIM_CUSTOMER_KYC,FACT_TRANSACTIONS,user_id,20000,19980,20,99.9,Retained with is_unmatched_kyc=TRUE (Not labeled fraud)
+DIM_MERCHANT,FACT_TRANSACTIONS,merchant_id,20000,19980,20,99.9,Retained with is_unmatched_merchant=TRUE (Not labeled fraud)
+FACT_TRANSACTIONS,FACT_CHARGEBACKS,txn_id,2800,2772,28,99.0,Retained with is_unmatched_transaction=TRUE (Not labeled fraud)

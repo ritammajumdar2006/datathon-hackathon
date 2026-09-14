@@ -1,0 +1,5 @@
+dataset,column_name,raw_null_count,raw_null_pct,clean_null_count,clean_null_pct,treatment_strategy
+track1_upi_transactions.csv,utr,1024,5.02,1000,5.0,"Preserved raw NULL, flagged is_utr_missing=TRUE, populated clean default UTR_MISSING"
+track1_kyc_records.csv,pan,1896,5.21,1522,5.26,"Preserved raw NULL, pan_validity_status flagged as MISSING, UI masked"
+track1_kyc_records.csv,aadhaar,2664,7.32,2130,7.37,"Preserved raw NULL, aadhaar_validity_status flagged as MISSING, UI masked"
+track1_chargebacks.json,disputed_amount,583,20.82,179,20.82,"Zero-Imputation Policy: Preserved strictly as NULL, disputed_amount_missing=TRUE"
